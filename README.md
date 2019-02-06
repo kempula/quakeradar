@@ -19,3 +19,9 @@ Solution:
 So, I chose to go with two features: to show the earthquakes on Google Map and in a list with place, timestamp and magnitude. The list also has two sorting options: by magnitude (high to low) and by date and time.
 
 Third party libraries I used: Retrofit, RxJava and Gson (and Google Maps SDK).
+
+<img src="/screenshots/ss1.png" />
+
+<img src="/screenshots/ss2.png" />
+
+<img src="/screenshots/ss3.png" />
