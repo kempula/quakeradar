@@ -118,6 +118,7 @@ public class EarthquakeListFragment extends Fragment implements SortingDialog.So
             }
         });
 
+        Collections.reverse(sortedEarthquakes);
         adapter.setEarthquakes(sortedEarthquakes);
     }
 
