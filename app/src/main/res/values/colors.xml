@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#AD343E</color>
+    <color name="colorPrimaryDark">#780018</color>
+    <color name="colorAccent">#F2AF29</color>
+    <color name="colorPrimaryLight">#e46569</color>
+
+    <color name="outerSpace">#474747</color>
+    <color name="bone">#E0E0E0</color>
+</resources>
