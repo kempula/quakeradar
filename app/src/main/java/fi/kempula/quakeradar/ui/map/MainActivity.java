@@ -12,9 +12,9 @@ import android.view.View;
 
 import java.util.ArrayList;
 
+import fi.kempula.quakeradar.QuakeRadarApplication;
 import fi.kempula.quakeradar.R;
 import fi.kempula.quakeradar.core.base.BaseRxActivity;
-import fi.kempula.quakeradar.core.module.ApiManagerModule;
 import fi.kempula.quakeradar.model.Earthquake;
 import fi.kempula.quakeradar.network.api.ApiManager;
 import fi.kempula.quakeradar.ui.map.fragment.EarthquakeListFragment;
@@ -79,7 +79,7 @@ public class MainActivity extends BaseRxActivity {
     }
 
     private void getEarthquakeData() {
-        ApiManager apiManager = ApiManagerModule.provideApiManager();
+        ApiManager apiManager = QuakeRadarApplication.getInstance().getApiManager();
 
         Disposable disposable = apiManager.earthquakeList()
                 .subscribeOn(Schedulers.io())
