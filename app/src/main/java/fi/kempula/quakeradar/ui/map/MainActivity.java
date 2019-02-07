@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
@@ -14,6 +13,7 @@ import android.view.View;
 import java.util.ArrayList;
 
 import fi.kempula.quakeradar.R;
+import fi.kempula.quakeradar.core.base.BaseRxActivity;
 import fi.kempula.quakeradar.core.module.ApiManagerModule;
 import fi.kempula.quakeradar.model.Earthquake;
 import fi.kempula.quakeradar.network.api.ApiManager;
@@ -24,10 +24,9 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends BaseRxActivity {
 
     private ArrayList<Earthquake> list = new ArrayList<>();
-    private CompositeDisposable disposables = new CompositeDisposable();
     private MapFragment mapFragment = null;
     private EarthquakeListFragment listFragment = null;
 
@@ -59,6 +58,10 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
         hideStatusBar();
         initializeMapFragment();
         setBottomNavigation();
@@ -88,7 +91,7 @@ public class MainActivity extends FragmentActivity {
                     error.printStackTrace();
                 });
 
-        disposables.add(disposable);
+        addSubscription(disposable);
     }
 
     private void initializeMapFragment() {
